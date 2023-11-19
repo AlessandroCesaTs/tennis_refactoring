@@ -36,17 +36,6 @@ public class TennisGame1 implements TennisGame {
         }
     }
 
-
-    private String different_score() {
-        //get the score in case the players have different scores
-        String score;
-        score = getScoreString(score1);
-        score+="-";
-        score += getScoreString(score2);
-        return score;
-    }
-
-
     private String sameScore() {
         //get the score in case the players have same scores
         String score;
@@ -67,6 +56,15 @@ public class TennisGame1 implements TennisGame {
         else if (minusResult ==-1) score ="Advantage "+player2Name;
         else if (minusResult>=2) score = "Win for "+player1Name;
         else score ="Win for "+player2Name;
+        return score;
+    }
+
+    private String different_score() {
+        //get the score in case the players have different scores
+        String score;
+        score = getScoreString(score1);
+        score+="-";
+        score += getScoreString(score2);
         return score;
     }
 
