@@ -5,6 +5,7 @@ public class TennisGame1 implements TennisGame {
     private int m_score2 = 0;
     private String player1Name;
     private String player2Name;
+    private String score="";
 
     public TennisGame1(String player1Name, String player2Name) {
         this.player1Name = player1Name;
@@ -19,8 +20,6 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        String score = "";
-        int tempScore=0;
         if (m_score1==m_score2)
         {
             score = sameScore();
@@ -64,7 +63,6 @@ public class TennisGame1 implements TennisGame {
 
 
     private String sameScore() {
-        String score="";
         if (m_score1==3 || m_score1==4){
             score+="Deuce";
         }else{
