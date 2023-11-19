@@ -34,25 +34,6 @@ public class TennisGame1 implements TennisGame {
         }
     }
 
-    private String getScoreString(int scoreInt) {
-        String scoreString="";
-        switch(scoreInt)
-        {
-            case 0:
-                scoreString +="Love";
-                break;
-            case 1:
-                scoreString +="Fifteen";
-                break;
-            case 2:
-                scoreString +="Thirty";
-                break;
-            case 3:
-                scoreString +="Forty";
-                break;
-        }
-        return scoreString;
-    }
 
     private String different_score() {
         String score;
@@ -82,5 +63,25 @@ public class TennisGame1 implements TennisGame {
         else if (minusResult>=2) score = "Win for "+player1Name;
         else score ="Win for "+player2Name;
         return score;
+    }
+
+    private String getScoreString(int scoreInt) {
+        String scoreString="";
+        switch(scoreInt)
+        {
+            case 0:
+                scoreString +="Love";
+                break;
+            case 1:
+                scoreString +="Fifteen";
+                break;
+            case 2:
+                scoreString +="Thirty";
+                break;
+            case 3:
+                scoreString +="Forty";
+                break;
+        }
+        return scoreString;
     }
 }
