@@ -34,7 +34,7 @@ public class TennisGame1 implements TennisGame {
         }
     }
 
-    private String get_score(int tempScore) {
+    private String getScoreString(int tempScore) {
         String score="";
         switch(tempScore)
         {
@@ -56,9 +56,9 @@ public class TennisGame1 implements TennisGame {
 
     private String different_score() {
         String score;
-        score = get_score(m_score1);
+        score = getScoreString(m_score1);
         score+="-";
-        score += get_score(m_score2);
+        score += getScoreString(m_score2);
         return score;
     }
 
@@ -68,7 +68,7 @@ public class TennisGame1 implements TennisGame {
         if (m_score1==3 || m_score1==4){
             score="Deuce";
         }else{
-            score=get_score(m_score1);
+            score= getScoreString(m_score1);
             score+="-All";
         }
         return score;
