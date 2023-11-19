@@ -1,8 +1,8 @@
 
 public class TennisGame1 implements TennisGame {
     
-    private int m_score1 = 0;
-    private int m_score2 = 0;
+    private int score1 = 0;
+    private int score2 = 0;
     private final String player1Name;
     private final String player2Name;
 
@@ -14,17 +14,17 @@ public class TennisGame1 implements TennisGame {
 
     public void wonPoint(String playerName) {
         if (playerName.equals(player1Name))
-            m_score1 += 1;
+            score1 += 1;
         else
-            m_score2 += 1;
+            score2 += 1;
     }
 
     public String getScore() {
-        if (m_score1==m_score2)
+        if (score1 == score2)
         {
             return sameScore();
         }
-        else if (m_score1>=4 || m_score2>=4)
+        else if (score1 >=4 || score2 >=4)
         {
            return advantage();
         }
@@ -34,41 +34,41 @@ public class TennisGame1 implements TennisGame {
         }
     }
 
-    private String getScoreString(int tempScore) {
-        String score="";
-        switch(tempScore)
+    private String getScoreString(int scoreInt) {
+        String scoreString="";
+        switch(scoreInt)
         {
             case 0:
-                score +="Love";
+                scoreString +="Love";
                 break;
             case 1:
-                score +="Fifteen";
+                scoreString +="Fifteen";
                 break;
             case 2:
-                score +="Thirty";
+                scoreString +="Thirty";
                 break;
             case 3:
-                score +="Forty";
+                scoreString +="Forty";
                 break;
         }
-        return score;
+        return scoreString;
     }
 
     private String different_score() {
         String score;
-        score = getScoreString(m_score1);
+        score = getScoreString(score1);
         score+="-";
-        score += getScoreString(m_score2);
+        score += getScoreString(score2);
         return score;
     }
 
 
     private String sameScore() {
         String score;
-        if (m_score1==3 || m_score1==4){
+        if (score1 ==3 || score1 ==4){
             score="Deuce";
         }else{
-            score= getScoreString(m_score1);
+            score= getScoreString(score1);
             score+="-All";
         }
         return score;
@@ -76,7 +76,7 @@ public class TennisGame1 implements TennisGame {
 
     private String advantage() {
         String score;
-        int minusResult = m_score1-m_score2;
+        int minusResult = score1 - score2;
         if (minusResult==1) score ="Advantage "+player1Name;
         else if (minusResult ==-1) score ="Advantage "+player2Name;
         else if (minusResult>=2) score = "Win for "+player1Name;
