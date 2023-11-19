@@ -36,13 +36,6 @@ public class TennisGame1 implements TennisGame {
         return score;
     }
 
-    private String different_score(String score) {
-        score = get_score(score, m_score1);
-        score +="-";
-        score = get_score(score, m_score2);
-        return score;
-    }
-
     private static String get_score(String score, int tempScore) {
         switch(tempScore)
         {
@@ -62,23 +55,21 @@ public class TennisGame1 implements TennisGame {
         return score;
     }
 
-    private String sameScore() {
-        String score;
-        switch (m_score1)
-        {
-            case 0:
-                    score = "Love-All";
-                break;
-            case 1:
-                    score = "Fifteen-All";
-                break;
-            case 2:
-                    score = "Thirty-All";
-                break;
-            default:
-                    score = "Deuce";
-                break;
+    private String different_score(String score) {
+        score = get_score(score, m_score1);
+        score +="-";
+        score = get_score(score, m_score2);
+        return score;
+    }
 
+
+    private String sameScore() {
+        String score="";
+        if (m_score1==3 || m_score1==4){
+            score+="Deuce";
+        }else{
+            score=get_score(score,m_score1);
+            score+="-All";
         }
         return score;
     }
