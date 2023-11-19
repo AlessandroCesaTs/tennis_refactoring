@@ -1,8 +1,8 @@
 
 public class TennisGame1 implements TennisGame {
     
-    private int score1 = 0;
-    private int score2 = 0;
+    private int score1 = 0; //points of player 1
+    private int score2 = 0; //points of player 2
     private final String player1Name;
     private final String player2Name;
 
@@ -13,6 +13,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     public void wonPoint(String playerName) {
+        //add a point to the score of a player
         if (playerName.equals(player1Name))
             score1 += 1;
         else
@@ -20,15 +21,16 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        if (score1 == score2)
+        //get the score of the game
+        if (score1 == score2) //players have same score
         {
             return sameScore();
         }
-        else if (score1 >=4 || score2 >=4)
+        else if (score1 >=4 || score2 >=4) //one player has scored more than 3 times, advantage situation
         {
            return advantage();
         }
-        else
+        else //players have different scores without advantage
         {
             return different_score();
         }
@@ -36,6 +38,7 @@ public class TennisGame1 implements TennisGame {
 
 
     private String different_score() {
+        //get the score in case the players have different scores
         String score;
         score = getScoreString(score1);
         score+="-";
@@ -45,8 +48,9 @@ public class TennisGame1 implements TennisGame {
 
 
     private String sameScore() {
+        //get the score in case the players have same scores
         String score;
-        if (score1 ==3 || score1 ==4){
+        if (score1 ==3 || score1 ==4){ //"deuce" situation
             score="Deuce";
         }else{
             score= getScoreString(score1);
@@ -56,6 +60,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String advantage() {
+        //get the score in case of advantage
         String score;
         int minusResult = score1 - score2;
         if (minusResult==1) score ="Advantage "+player1Name;
@@ -66,6 +71,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getScoreString(int scoreInt) {
+        //given the number of points made, get the string of the score
         String scoreString="";
         switch(scoreInt)
         {
