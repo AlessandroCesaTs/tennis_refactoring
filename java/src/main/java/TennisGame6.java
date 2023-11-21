@@ -11,7 +11,7 @@ public class TennisGame6 implements TennisGame {
 
     @Override
     public void wonPoint(String playerName) {
-        if (playerName.equals("player1"))
+        if (playerName.equals(player1Name))
             player1Score++;
         else
             player2Score++;

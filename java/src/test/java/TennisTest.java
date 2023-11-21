@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 
 import java.util.stream.Stream;
@@ -51,6 +50,15 @@ public class TennisTest {
         });
     }
 
+    public static Stream<Object[]> scoresDifferentNames(){
+        return Stream.of(new Object[][]{
+                {4,2,"Win for Pippo"},
+                {0,4,"Win for Pluto"},
+                {4,3,"Advantage Pippo"},
+                {3,4,"Advantage Pluto"},
+        });
+    }
+
     private static void checkAllScores(String player1Name,String player2Name,int player1Points, int player2Points, String expectedScore, TennisGame game) {
         int highestScore = Math.max(player1Points, player2Points);
         for (int i = 0; i < highestScore; i++) {
@@ -69,28 +77,11 @@ public class TennisTest {
         checkAllScores("player1","player2",player1Points, player2Points, expectedScore, game);
     }
 
-    @Test
-    public void checkWinPlayer1DifferentNamesTennisGame1(){
-        TennisGame game = new TennisGame1("Pippo","Pluto");
-        checkAllScores("Pippo","Pluto",4,2,"Win for Pippo",game);
-    }
-
-    @Test
-    public void checkWinPlayer2DifferentNamesTennisGame1(){
-        TennisGame game = new TennisGame1("Pippo","Pluto");
-        checkAllScores("Pippo","Pluto",0,4,"Win for Pluto",game);
-    }
-
-    @Test
-    public void checkAdvantagePlayer1DifferentNamesTennisGame1(){
-        TennisGame game = new TennisGame1("Pippo","Pluto");
-        checkAllScores("Pippo","Pluto",4,3,"Advantage Pippo",game);
-    }
-
-    @Test
-    public void checkAdvantagePlayer2DifferentNamesTennisGame1(){
-        TennisGame game = new TennisGame1("Pippo","Pluto");
-        checkAllScores("Pippo","Pluto",3,4,"Advantage Pluto",game);
+    @ParameterizedTest
+    @MethodSource("scoresDifferentNames")
+    public void checkDifferentNamesTennisGame1(int player1Points, int player2Points, String expectedScore) {
+        TennisGame game = new TennisGame1("Pippo", "Pluto");
+        checkAllScores("Pippo", "Pluto",player1Points, player2Points, expectedScore, game);
     }
 
     @ParameterizedTest
@@ -101,10 +92,24 @@ public class TennisTest {
     }
 
     @ParameterizedTest
+    @MethodSource("scoresDifferentNames")
+    public void checkDifferentNamesTennisGame2(int player1Points, int player2Points, String expectedScore) {
+        TennisGame game = new TennisGame2("Pippo", "Pluto");
+        checkAllScores("Pippo", "Pluto",player1Points, player2Points, expectedScore, game);
+    }
+
+    @ParameterizedTest
     @MethodSource("getAllScores")
     public void checkAllScoresTennisGame3(int player1Points, int player2Points, String expectedScore) {
         TennisGame game = new TennisGame3("player1", "player2");
         checkAllScores("player1","player2",player1Points, player2Points, expectedScore, game);
+    }
+
+    @ParameterizedTest
+    @MethodSource("scoresDifferentNames")
+    public void checkDifferentNamesTennisGame3(int player1Points, int player2Points, String expectedScore) {
+        TennisGame game = new TennisGame3("Pippo", "Pluto");
+        checkAllScores("Pippo", "Pluto",player1Points, player2Points, expectedScore, game);
     }
 
     @ParameterizedTest
@@ -115,6 +120,13 @@ public class TennisTest {
     }
 
     @ParameterizedTest
+    @MethodSource("scoresDifferentNames")
+    public void checkDifferentNamesTennisGame4(int player1Points, int player2Points, String expectedScore) {
+        TennisGame game = new TennisGame4("Pippo", "Pluto");
+        checkAllScores("Pippo", "Pluto",player1Points, player2Points, expectedScore, game);
+    }
+
+    @ParameterizedTest
     @MethodSource("getAllScores")
     public void checkAllScoresTennisGame5(int player1Points, int player2Points, String expectedScore) {
         TennisGame game = new TennisGame5("player1", "player2");
@@ -122,9 +134,23 @@ public class TennisTest {
     }
 
     @ParameterizedTest
+    @MethodSource("scoresDifferentNames")
+    public void checkDifferentNamesTennisGame5(int player1Points, int player2Points, String expectedScore) {
+        TennisGame game = new TennisGame5("Pippo", "Pluto");
+        checkAllScores("Pippo", "Pluto",player1Points, player2Points, expectedScore, game);
+    }
+
+    @ParameterizedTest
     @MethodSource("getAllScores")
     public void checkAllScoresTennisGame6(int player1Points, int player2Points, String expectedScore) {
         TennisGame game = new TennisGame6("player1", "player2");
         checkAllScores("player1","player2",player1Points, player2Points, expectedScore, game);
+    }
+
+    @ParameterizedTest
+    @MethodSource("scoresDifferentNames")
+    public void checkDifferentNamesTennisGame6(int player1Points, int player2Points, String expectedScore) {
+        TennisGame game = new TennisGame6("Pippo", "Pluto");
+        checkAllScores("Pippo", "Pluto",player1Points, player2Points, expectedScore, game);
     }
 }

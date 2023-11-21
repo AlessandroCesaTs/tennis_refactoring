@@ -15,9 +15,9 @@ public class TennisGame5 implements TennisGame {
 
     @Override
     public void wonPoint(String playerName) {
-        if (playerName.equals("player1"))
+        if (playerName.equals(player1Name))
             player1Score++;
-        else if (playerName.equals("player2"))
+        else if (playerName.equals(player2Name))
             player2Score++;
         else
             throw new IllegalArgumentException("Invalid player name.");
@@ -38,26 +38,26 @@ public class TennisGame5 implements TennisGame {
         lookup.put(Map.entry(0, 1), "Love-Fifteen");
         lookup.put(Map.entry(0, 2), "Love-Thirty");
         lookup.put(Map.entry(0, 3), "Love-Forty");
-        lookup.put(Map.entry(0, 4), "Win for player2");
+        lookup.put(Map.entry(0, 4), "Win for "+player2Name);
         lookup.put(Map.entry(1, 0), "Fifteen-Love");
         lookup.put(Map.entry(1, 1), "Fifteen-All");
         lookup.put(Map.entry(1, 2), "Fifteen-Thirty");
         lookup.put(Map.entry(1, 3), "Fifteen-Forty");
-        lookup.put(Map.entry(1, 4), "Win for player2");
+        lookup.put(Map.entry(1, 4), "Win for "+player2Name);
         lookup.put(Map.entry(2, 0), "Thirty-Love");
         lookup.put(Map.entry(2, 1), "Thirty-Fifteen");
         lookup.put(Map.entry(2, 2), "Thirty-All");
         lookup.put(Map.entry(2, 3), "Thirty-Forty");
-        lookup.put(Map.entry(2, 4), "Win for player2");
+        lookup.put(Map.entry(2, 4), "Win for "+player2Name);
         lookup.put(Map.entry(3, 0), "Forty-Love");
         lookup.put(Map.entry(3, 1), "Forty-Fifteen");
         lookup.put(Map.entry(3, 2), "Forty-Thirty");
         lookup.put(Map.entry(3, 3), "Deuce");
-        lookup.put(Map.entry(3, 4), "Advantage player2");
-        lookup.put(Map.entry(4, 0), "Win for player1");
-        lookup.put(Map.entry(4, 1), "Win for player1");
-        lookup.put(Map.entry(4, 2), "Win for player1");
-        lookup.put(Map.entry(4, 3), "Advantage player1");
+        lookup.put(Map.entry(3, 4), "Advantage "+player2Name);
+        lookup.put(Map.entry(4, 0), "Win for "+player1Name);
+        lookup.put(Map.entry(4, 1), "Win for "+player1Name);
+        lookup.put(Map.entry(4, 2), "Win for "+player1Name);
+        lookup.put(Map.entry(4, 3), "Advantage "+player1Name);
         lookup.put(Map.entry(4, 4), "Deuce");
 
         var entry = Map.entry(p1, p2);
